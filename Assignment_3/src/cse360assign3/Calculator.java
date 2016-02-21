@@ -3,7 +3,7 @@ package cse360assign3;
 
 /** Performs arithmetic calculations on given integers
  * @author Ireen Khan
- * @version February 9, 2016
+ * @version February 21, 2016
  * 
  */
 
@@ -18,13 +18,15 @@ public class Calculator {
 	
 	/** Returns the total */
 	public int getTotal () {
-		return 0;
+		return total;
 	}
 	
 	/** Sums the total and the value
 	 *  @param value	number to be added to the total
 	 */
 	public void add (int value) {
+		
+		total = total + value;
 		
 	}
 	
@@ -33,12 +35,16 @@ public class Calculator {
 	 */
 	public void subtract (int value) {
 		
+		total = total - value;
+		
 	}
 	
 	/** Finds product of the total and value
 	 *  @param value	number that total will be multiplied with
 	 */
 	public void multiply (int value) {
+		
+		total = total * value;
 		
 	}
 	
@@ -47,6 +53,11 @@ public class Calculator {
 	 */
 	public void divide (int value) {
 		
+		if(value == 0){
+			total = 0;
+		}else{
+			total = total / value;
+		}
 	}
 	
 	/** Shows the calculations that have been performed*/

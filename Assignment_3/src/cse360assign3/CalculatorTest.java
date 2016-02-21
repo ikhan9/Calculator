@@ -6,7 +6,7 @@ import org.junit.Test;
 
 /** JUnit test cases Calculator.java
  * @author Ireen Khan
- * @version February 9, 2016
+ * @version February 21, 2016
  * 
  */
 
@@ -24,6 +24,8 @@ public class CalculatorTest {
 	public void returnTot(){
 		Calculator calc = new Calculator();
 		
+		calc.add(1);
+		
 		assertEquals(1, calc.getTotal());
 	}
 	
@@ -33,8 +35,10 @@ public class CalculatorTest {
 		Calculator calc = new Calculator();
 		
 		calc.add(3);
+		calc.add(4);
+		calc.add(0);
 		
-		assertEquals(1, calc.getTotal());
+		assertEquals(7, calc.getTotal());
 	}
 	
 	@Test
@@ -42,9 +46,10 @@ public class CalculatorTest {
 	public void returnDiff(){
 		Calculator calc = new Calculator();
 		
+		calc.add(7);
 		calc.subtract(3);
 
-		assertEquals(1, calc.getTotal());
+		assertEquals(4, calc.getTotal());
 	}
 	
 	@Test
@@ -52,9 +57,10 @@ public class CalculatorTest {
 	public void returnProd(){
 		Calculator calc = new Calculator();
 		
+		calc.add(1);
 		calc.multiply(3);
 
-		assertEquals(1, calc.getTotal());
+		assertEquals(3, calc.getTotal());
 	}
 	
 	@Test
@@ -62,9 +68,21 @@ public class CalculatorTest {
 	public void returnDiv(){
 		Calculator calc = new Calculator();
 		
+		calc.add(9);
 		calc.divide(3);
 
-		assertEquals(1, calc.getTotal());
+		assertEquals(3, calc.getTotal());
+	}
+	
+	@Test
+	/**Tests the quotient when value is zero*/
+	public void divByZero(){
+		Calculator calc = new Calculator();
+		
+		calc.add(9);
+		calc.divide(0);
+
+		assertEquals(0, calc.getTotal());
 	}
 	
 	@Test
@@ -72,7 +90,7 @@ public class CalculatorTest {
 	public void returnHist(){
 		Calculator calc = new Calculator();
 		
-		assertEquals("1 + 3", calc.getHistory());
+		assertEquals("", calc.getHistory());
 	}
 
 }
