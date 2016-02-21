@@ -10,10 +10,12 @@ package cse360assign3;
 public class Calculator {
 
 	private int total;
+	public String histTrack;
 	
 	/** Create a calculator where no arithmetic operations have been performed, total is 0 */
 	public Calculator () {
 		total = 0;  // not needed - included for clarity
+		histTrack = ""; //stores calculation changes in a string
 	}
 	
 	/** Returns the total */
@@ -27,6 +29,7 @@ public class Calculator {
 	public void add (int value) {
 		
 		total = total + value;
+		histTrack = histTrack + " + " + value;
 		
 	}
 	
@@ -36,6 +39,7 @@ public class Calculator {
 	public void subtract (int value) {
 		
 		total = total - value;
+		histTrack = histTrack + " - " + value;
 		
 	}
 	
@@ -45,6 +49,7 @@ public class Calculator {
 	public void multiply (int value) {
 		
 		total = total * value;
+		histTrack = histTrack + " * " + value;
 		
 	}
 	
@@ -58,10 +63,16 @@ public class Calculator {
 		}else{
 			total = total / value;
 		}
+		histTrack = histTrack + " / " + value;
+		
 	}
 	
 	/** Shows the calculations that have been performed*/
 	public String getHistory () {
-		return "";
+		String history = "0";
+		
+		history = history + histTrack;
+		
+		return history;
 	}
 }

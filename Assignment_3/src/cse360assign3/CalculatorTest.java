@@ -90,7 +90,12 @@ public class CalculatorTest {
 	public void returnHist(){
 		Calculator calc = new Calculator();
 		
-		assertEquals("", calc.getHistory());
+		calc.add(1);
+		calc.multiply(3);
+		calc.subtract(4);
+		calc.divide(8);
+		
+		assertEquals("0 + 1 * 3 - 4 / 8", calc.getHistory());
 	}
 
 }
